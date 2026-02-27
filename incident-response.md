@@ -1,41 +1,54 @@
-# Incident Scenarios and Response
+# Incident Response Plan
+
+This document defines how security incidents are handled.
+
 
 ## Incident 1: Brute Force Attack
 
-Evidence:
-Multiple LOGIN_FAILED events
+Detection: Multiple failed login attempts detected in logs.
 
-Severity:
-HIGH
+Severity: High
 
 Response Steps:
-1. System automatically locks account
-2. Log event recorded
-3. Administrator reviews logs
-4. User notified
+
+* Identify attacker IP address
+* Review login logs
+* Lock affected account
+* Monitor further activity
+* Implement stronger authentication controls
 
 
-## Incident 2: Unauthorized Access Attempt
+## Incident 2: SQL Injection Attempt
 
-Evidence:
-LOGIN_FAILED event
+Detection: Malicious input detected in login or registration fields.
 
-Severity:
-MEDIUM
+Severity: Critical
 
-Response:
-Monitor IP activity
-Alert administrator
+Response Steps:
+
+* Identify source IP
+* Block IP address
+* Review database integrity
+* Check for unauthorized access
+* Strengthen input validation
 
 
-## Incident 3: Normal User Login
+## Incident 3: Unauthorized Access Attempt
 
-Evidence:
-LOGIN_SUCCESS event
+Detection: Repeated login failures or suspicious activity.
 
-Severity:
-LOW
+Severity: Medium
 
-Response:
-No action required
-Log stored for audit
+Response Steps:
+
+* Monitor user activity
+* Verify account owner
+* Reset password if needed
+* Review logs
+
+
+## Incident Documentation
+
+All incidents are recorded in:
+* security.log  
+* alerts.log
