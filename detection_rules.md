@@ -1,44 +1,58 @@
 # Detection Rules
 
-## Rule 1: Brute Force Detection
-Condition:
-If LOGIN_FAILED occurs 3 times from same IP
-
-Detection:
-ACCOUNT_LOCKED event triggered
-
-Reason:
-Indicates brute force attack attempt
+This document defines the detection logic used in the monitoring system.
 
 
-## Rule 2: Unauthorized Login Attempt
-Condition:
-LOGIN_FAILED event detected
+## Rule 1: Failed Login Attempt
 
-Detection:
-Flag suspicious authentication attempt
+Condition: Login attempt with incorrect password
 
-Reason:
-Possible credential guessing
+Log Event: LOGIN_FAILED
 
+Severity: Medium
 
-## Rule 3: Successful Authentication Monitoring
-Condition:
-LOGIN_SUCCESS event
-
-Detection:
-Record user access
-
-Reason:
-Track legitimate access
+Reason: May indicate password guessing or brute force attempt.
 
 
-## Rule 4: Access After Login
-Condition:
-DASHBOARD_ACCESS event
+## Rule 2: Brute Force Attack
 
-Detection:
-Verify authenticated session usage
+Condition: 3 or more failed login attempts
 
-Reason:
-Ensure session integrity
+Log Event: BRUTE_FORCE_DETECTED
+
+Severity: High
+
+Reason: Multiple failed attempts indicate brute force attack.
+
+
+## Rule 3: SQL Injection Attempt
+
+Condition: Input contains SQL keywords such as:
+            * SELECT  
+            * UNION  
+            * DROP  
+            * ' OR '1'='1  
+
+Log Event: SQL_INJECTION_ATTEMPT
+
+Severity: Critical
+
+Reason: Indicates database attack attempt.
+
+
+## Rule 4: Account Lock
+
+Condition: Too many failed login attempts
+
+Log Event: LOGIN_BLOCKED
+
+Severity: High
+
+
+## Rule 5: Suspicious Registration Attempt
+
+Condition: Duplicate email or suspicious input
+
+Log Event: REGISTER_FAILED
+
+Severity: Medium
