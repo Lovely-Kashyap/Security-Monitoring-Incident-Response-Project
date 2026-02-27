@@ -112,4 +112,4 @@ admin' OR '1'='1
 
 **Lovely Kashyap**
 
-Cyber Security & Ethical Hacking - Cryptonic Area
+Cyber Security & Ethical Hacking Intern - Cryptonic Area
