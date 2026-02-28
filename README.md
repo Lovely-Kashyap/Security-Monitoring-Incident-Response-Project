@@ -40,6 +40,7 @@ monitor.py continuously monitors logs and detects incidents.
 ### Dashboard
 
 The web application provides:
+
 • User login system  
 • Log viewing interface  
 • Alert viewing interface  
