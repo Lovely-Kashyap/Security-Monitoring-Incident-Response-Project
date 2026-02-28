@@ -6,6 +6,7 @@ This project simulates a Security Operations Center (SOC) environment by monitor
 The goal is to demonstrate how real organizations monitor logs, detect attacks, and respond to security incidents.
 
 This project includes:
+
 • Web application with security event logging  
 • Real-time log monitoring script  
 • Alert generation system  
